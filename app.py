@@ -72,7 +72,7 @@ def login_via_facebook():
 
 
 def login_via_phone_num():
-    pass # currently there is antibot
+    pass # Currently there is AntiBot
 
 
 # login
