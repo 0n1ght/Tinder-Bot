@@ -6,7 +6,7 @@ def create_gui():
     # Tworzenie głównego okna
     root = tk.Tk()
     root.title("Tinder Swapper")
-    root.geometry("300x250")
+    root.geometry("320x370")
 
     bot_label = tk.Label(root, text="Tinder Swapper", font=("Arial", 16))
     bot_label.pack(pady=10)
@@ -36,6 +36,7 @@ def create_gui():
     login = tk.StringVar()
     passwd = tk.StringVar()
     submitted = tk.BooleanVar(value=False)
+    f2a_used = False
 
     def on_submit():
         platform.set(sign_in_var.get())
@@ -47,6 +48,18 @@ def create_gui():
     submit_button = tk.Button(root, text="Submit", command=on_submit)
     submit_button.pack(pady=10)
 
+    def on_run():
+        global f2a_used
+        f2a_used = True
+        submitted.set(True)
+        root.destroy()
+
+    run_label = tk.Label(root, foreground="red", text="If something donesn't work (ep. You have 2fa\n on login platform and do not want to change it), use\nbutton below, You will get 3 min to sign-in into \nYour Tinder account, then program will start swapping.")
+    run_label.pack()
+
+    run_button = tk.Button(root, text="Run Swapping", command=on_run)
+    run_button.pack(pady=15)
+
     root.mainloop()
 
-    return platform.get(), login.get(), passwd.get(), submitted.get()
+    return platform.get(), login.get(), passwd.get(), submitted.get(), f2a_used

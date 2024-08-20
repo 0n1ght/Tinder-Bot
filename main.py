@@ -43,10 +43,11 @@ def login_via_facebook(driver, login, passwd):
     driver.find_element(By.XPATH, value="/html/body/div[1]/div/div/div/div/div/div/div[1]/div[3]/div/div/div/div/div/div/div/div/div[3]/div[1]/div/div/div/div[1]/div").click()
 
 def login_via_phone_num(driver, login, passwd):
-    pass  # Still figuring out how to handle this
+    pass  # Bot Protected - Still figuring out how to handle this.
+
 
 def main():
-    platform, login, passwd, submitted = create_gui()
+    platform, login, passwd, submitted, f2a_used = create_gui()
 
     if not submitted:
         exit(1)
@@ -56,27 +57,30 @@ def main():
     wait(5)
 
     # Sign in
-    driver.find_element(By.XPATH, value="/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div/div/div/header/div/div[2]/div[2]/a/div[2]/div[2]/div").click()
-    wait(4)
-
-    match platform.lower():
-        case "google":
-            login_via_gmail(driver, login, passwd)
-        case "facebook":
-            login_via_facebook(driver, login, passwd)
-        case "phone":
-            login_via_phone_num(driver, login, passwd)
-        case _:
-            print("Error with chosen platform.")
-
-    wait(8)
-    driver.switch_to.window(driver.window_handles[0])
-
-    # Welcome on Tinder
-    driver.find_element(By.XPATH, value="/html/body/div[2]/div/div[1]/div/div/div[3]/button[1]").click()
-    wait(4)
-    driver.find_element(By.XPATH, value="/html/body/div[2]/div/div/div/div/div[3]/button[2]").click()
-    wait(8)
+    if not f2a_used:
+        driver.find_element(By.XPATH, value="/html/body/div[1]/div/div[1]/div/main/div[1]/div/div/div/div/div/header/div/div[2]/div[2]/a/div[2]/div[2]/div").click()
+        wait(4)
+    
+        match platform.lower():
+            case "google":
+                login_via_gmail(driver, login, passwd)
+            case "facebook":
+                login_via_facebook(driver, login, passwd)
+            case "phone":
+                login_via_phone_num(driver, login, passwd)
+            case _:
+                print("Error with chosen platform.")
+    
+        wait(8)
+        driver.switch_to.window(driver.window_handles[0])
+    
+        # Welcome on Tinder
+        driver.find_element(By.XPATH, value="/html/body/div[2]/div/div[1]/div/div/div[3]/button[1]").click()
+        wait(4)
+        driver.find_element(By.XPATH, value="/html/body/div[2]/div/div/div/div/div[3]/button[2]").click()
+        wait(8)
+    else:
+        wait(180)
 
     # Scroll right
     content = driver.find_element(By.CSS_SELECTOR, value="body")
