@@ -18,4 +18,4 @@ Then you can follow these steps to run the program:
 - Install required dependecies: `python -r requirements.txt`
 - Run with: `python main.py`
   
-Also make sure that you have 2-factor verification and other related features disabled on login platform's account. If not, and You don't want to do it, You can use this simple vesion.
+Also make sure that you have 2-factor verification and other related features disabled on login platform's account. If not, and You don't want to do it, You can use simple version that allows you to sign-in manually and starts swapping after 3 minutes. You will find it [here](https://github.com/Kar04e/Tinder-Bot-Simpler-Version)
