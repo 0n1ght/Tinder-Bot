@@ -1,5 +1,5 @@
 # Tinder-Bot
-Bot for right-swapping people on Tinder.
+Bot for right-swapping people on Tinder. Now, you don't have to waste your time. Just use it and come back later to choose your love from "matches".
 
 Written using Python with selenium module, opens Chrome Browser window and imitates clicks.
 
