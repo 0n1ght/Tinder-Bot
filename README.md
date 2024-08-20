@@ -12,8 +12,10 @@ Written using Python with selenium module, opens Chrome Browser window and imita
 
 
 ## How to Run ?
-If you already have repository cloned and [Python](https://www.python.org/downloads/) installed<br>
-You should also make sure that you have [Chrome Browser](https://www.google.com/chrome/) on your computer.
+If you already have repository cloned, [Python](https://www.python.org/downloads/) installed, and [Chrome Browser](https://www.google.com/chrome/) on your computer<br>
+Then you can follow these steps to run the program:
 - Open project's main folder
 - Install required dependecies: `python -r requirements.txt`
-- and Run: `python main.py`
+- Run with: `python main.py`
+  
+Also make sure that you have 2-factor verification and other related features disabled on login platform's account
