@@ -16,4 +16,4 @@ If you already have repository cloned, [Python](https://www.python.org/downloads
 Then you can follow these steps to run the program:
 - Open project's main folder
 - Install required dependecies: `python -r requirements.txt`
-- Run with: `python main.py`
+- Run main.py module from src folder using `python main.py`
